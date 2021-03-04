@@ -10,6 +10,19 @@ class Hourly extends React.Component
     render()
     {
       const {error, isLoaded, data} = this.props.forecast;
+
+      const renderHourly = (data) =>
+        data.forecast.forecastday.map(
+          (day) => day.hour.map((hourlyData) =>
+          <ul>
+            <li>{hourlyData.time_epoch}</li>
+            <li><img src={hourlyData.condition.icon} />}</li>
+            <li>{hourlyData.condition.text}</li>
+            <li>{hourlyData.temp_c}</li>
+          </ul>
+          )
+        ); 
+
       if(error){
         return <div>Error: {error.message}</div>
       } else if(!isLoaded){
@@ -17,12 +30,7 @@ class Hourly extends React.Component
       } else {
         return (
           <div>
-            <ul>
-                <li>{data.forecast.forecastday[0].hour[0].time_epoch}</li>
-                <li><img src={data.forecast.forecastday[0].hour[0].condition.icon}/></li>
-                <li>{data.forecast.forecastday[0].hour[0].condition.text}</li>
-                <li>{data.forecast.forecastday[1].hour[0].temp_c}°C</li>
-            </ul>
+            {renderHourly(data)}
           </div>
         );
       }
