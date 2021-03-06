@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 class Tomorrow extends React.Component
 {
@@ -17,11 +18,11 @@ class Tomorrow extends React.Component
       } else {
         return (
           <div>
-            <ul>
+            <ul className="container">
                 <li><img src={data.forecast.forecastday[1].day.condition.icon}/></li>
                 <li>{data.forecast.forecastday[1].day.condition.text}</li>
-                <li>min: {data.forecast.forecastday[1].day.mintemp_c}°C</li>
-                <li>max: {data.forecast.forecastday[1].day.maxtemp_c}°C</li>
+                <li className="temp">min: {data.forecast.forecastday[1].day.mintemp_c}°C</li>
+                <li className="temp">max: {data.forecast.forecastday[1].day.maxtemp_c}°C</li>
             </ul>
           </div>
         );

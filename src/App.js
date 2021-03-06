@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Current from './Pages/Current';
 import Tomorrow from './Pages/Tomorrow';
 import Hourly from './Pages/Hourly';
+import './App.css'
 
 
 class App extends React.Component
@@ -78,7 +79,7 @@ class App extends React.Component
     return (
       <div>
         <nav>
-          <ul>
+          <ul className="buttonList">
             <li>
               <Link to="/">Current</Link>
             </li>

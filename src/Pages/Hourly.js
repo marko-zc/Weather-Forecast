@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 class Hourly extends React.Component
 {
@@ -13,13 +14,18 @@ class Hourly extends React.Component
 
       const renderHourly = (data) =>
         data.forecast.forecastday.map(
-          (day) => day.hour.map((hourlyData) =>
-          <ul>
-            <li>{hourlyData.time_epoch}</li>
-            <li><img src={hourlyData.condition.icon} />}</li>
-            <li>{hourlyData.condition.text}</li>
-            <li>{hourlyData.temp_c}</li>
-          </ul>
+          (day) => day.hour
+            .filter(
+              hourlyData => hourlyData.time_epoch*1000 >= (Date.now()-3600000)
+            ).map((hourlyData, i) => {
+                const time = new Date(hourlyData.time_epoch*1000)
+              return <ul key={i} className="container">
+                <li>{time.getHours() + ':00'}</li>
+                <li><img src={hourlyData.condition.icon} /></li>
+                <li>{hourlyData.condition.text}</li>
+                <li className="temp">{hourlyData.temp_c}°C</li>
+              </ul>
+            }
           )
         ); 
 

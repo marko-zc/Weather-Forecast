@@ -1,5 +1,5 @@
 import React from 'react';
-import './Current.css';
+import './style.css';
 
 class Current extends React.Component
 {
@@ -18,10 +18,10 @@ class Current extends React.Component
       } else {
         return (
           <div>
-            <ul>
+            <ul className="container">
                 <li><img src={data.current.condition.icon}/></li>
                 <li>{data.current.condition.text}</li>
-                <li>{data.current.temp_c}°C</li>
+                <li className="temp">{data.current.temp_c}°C</li>
                 <li>feels like: {data.current.feelslike_c}°C</li>
             </ul>
           </div>
