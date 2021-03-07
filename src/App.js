@@ -6,6 +6,8 @@ import Hourly from './Pages/Hourly';
 import './App.css'
 
 
+
+
 class App extends React.Component
 {
 
@@ -28,7 +30,32 @@ class App extends React.Component
 
   componentDidMount()
   {
-    fetch("https://api.weatherapi.com/v1/current.json?key=75a62926a7bb4dc0bb8100310212402&q=Zagreb&aqi=no")
+    fetch("https://json.geoiplookup.io/")
+      .then(response => response.json())
+      .then (
+        (data) => {
+          this.setState({
+            location: {
+              isLoaded: true,
+              data,
+              error: data.error
+            }
+          });
+        },
+        (error) => {
+          this.setState({
+            location: {
+              isLoaded: true,
+              error
+            }
+          });
+        }
+      )
+  }
+  
+  componentDidUpdate()
+  {
+    fetch("https://api.weatherapi.com/v1/current.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&aqi=no")
       .then(response => response.json())
       .then(
         (data) => {
@@ -51,7 +78,7 @@ class App extends React.Component
       ) 
 
 
-      fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=Zagreb&days=10&aqi=yes&alerts=yes")
+      fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&days=10&aqi=yes&alerts=yes")
       .then(response => response.json())
       .then(
         (data) => {
