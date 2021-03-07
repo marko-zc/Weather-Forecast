@@ -5,7 +5,7 @@ A simple weather forecast made with React.
 https://marko-zc.github.io/Weather-Forecast/
 
 ## Made with:
-- HTML
+- HTML (JSX)
 - CSS
 - Javascript
 - React
