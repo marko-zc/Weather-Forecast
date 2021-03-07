@@ -1,10 +1,10 @@
 # React Weather Forecast
 A simple weather forecast made with React.
 
-# Live demo:
+## Live demo:
 https://marko-zc.github.io/weather
 
-# Made with:
+## Made with:
 - HTML
 - CSS
 - Javascript
