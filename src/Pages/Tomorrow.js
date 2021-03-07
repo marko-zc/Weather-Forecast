@@ -21,8 +21,8 @@ class Tomorrow extends React.Component
             <ul className="container">
                 <li><img src={data.forecast.forecastday[1].day.condition.icon}/></li>
                 <li>{data.forecast.forecastday[1].day.condition.text}</li>
-                <li className="temp">min: {data.forecast.forecastday[1].day.mintemp_c}°C</li>
-                <li className="temp">max: {data.forecast.forecastday[1].day.maxtemp_c}°C</li>
+                <li>min: <span className="temp">{data.forecast.forecastday[1].day.mintemp_c}°C</span></li>
+                <li>max: <span className="temp">{data.forecast.forecastday[1].day.maxtemp_c}°C</span></li>
             </ul>
           </div>
         );
