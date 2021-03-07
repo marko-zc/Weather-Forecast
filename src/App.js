@@ -15,6 +15,11 @@ class App extends React.Component
   {
     super(props);
     this.state = {
+      location: {
+        error: null,
+        isLoaded: false,
+        data: null
+      },
       currentWeather: {
         error: null,
         isLoaded: false,
@@ -28,9 +33,9 @@ class App extends React.Component
     }
   }
 
-  componentDidMount()
+  async componentDidMount()
   {
-    fetch("https://json.geoiplookup.io/")
+    await fetch("https://json.geoiplookup.io/")
       .then(response => response.json())
       .then (
         (data) => {
@@ -51,54 +56,49 @@ class App extends React.Component
           });
         }
       )
-  }
-  
-  componentDidUpdate()
-  {
+
     fetch("https://api.weatherapi.com/v1/current.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&aqi=no")
-      .then(response => response.json())
+    .then(response => response.json())
+    .then(
+        (data) => {
+         this.setState({
+          currentWeather: {
+          isLoaded: true,
+          data,
+          error: data.error
+          }
+        });
+      },
+      (error) => {
+        this.setState({
+          currentWeather: {
+          isLoaded: true,
+          error
+          }
+        });
+      }
+    ) 
+
+    fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&days=10&aqi=yes&alerts=yes")          .then(response => response.json())
       .then(
         (data) => {
-          this.setState({
-            currentWeather: {
-            isLoaded: true,
-            data,
-            error: data.error
-            }
-          });
-        },
-        (error) => {
-          this.setState({
-            currentWeather: {
-            isLoaded: true,
-            error
-            }
-          });
-        }
-      ) 
-
-
-      fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&days=10&aqi=yes&alerts=yes")
-      .then(response => response.json())
-      .then(
-        (data) => {
-          this.setState({
-            forecast: {
-            isLoaded: true,
-            data,
-            error: data.error
-            }
-          });
-        },
-        (error) => {
-          this.setState({
-            forecast: {
-            isLoaded: true,
-            error
-            }
-          });
-        }
-      ) 
+        this.setState({
+          forecast: {
+          isLoaded: true,
+          data,
+          error: data.error
+          }
+        });
+      },
+      (error) => {
+        this.setState({
+          forecast: {
+          isLoaded: true,
+          error
+          }
+        });
+      }
+    ) 
   }
 
   render()
@@ -132,7 +132,6 @@ class App extends React.Component
       </div>
     );
   }
-
 }
 
 export default App;
