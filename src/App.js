@@ -108,13 +108,13 @@ class App extends React.Component
         <nav>
           <ul className="buttonList">
             <li>
-              <Link to="/">Current</Link>
+              <Link to="/weather/current">Current</Link>
             </li>
             <li>
-              <Link to="/tomorrow">Tomorrow</Link>
+              <Link to="/weather/tomorrow">Tomorrow</Link>
             </li>
             <li>
-              <Link to="/hourly">Hourly</Link>
+              <Link to="/weather/hourly">Hourly</Link>
             </li>
           </ul>
         </nav>
