@@ -111,10 +111,10 @@ class App extends React.Component
               <Link to="/Weather-Forecast">Current</Link>
             </li>
             <li>
-              <Link to="tomorrow">Tomorrow</Link>
+              <Link to="/tomorrow">Tomorrow</Link>
             </li>
             <li>
-              <Link to="hourly">Hourly</Link>
+              <Link to="/hourly">Hourly</Link>
             </li>
           </ul>
         </nav>
