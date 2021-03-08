@@ -119,7 +119,7 @@ class App extends React.Component
           </ul>
         </nav>
         <Switch>
-          <Route path={["/Weather-Forecast/current", "/Weather-Forecast"]}>
+          <Route path={"/Weather-Forecast"}>
             <Current currentData={this.state.currentWeather} />
           </Route>
           <Route path="/Weather-Forecast/tomorrow">
