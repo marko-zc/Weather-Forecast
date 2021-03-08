@@ -108,24 +108,24 @@ class App extends React.Component
         <nav>
           <ul className="buttonList">
             <li>
-              <Link to="/weather/current">Current</Link>
+              <Link to="/Weather-Forecast/current">Current</Link>
             </li>
             <li>
-              <Link to="/weather/tomorrow">Tomorrow</Link>
+              <Link to="/Weather-Forecast/tomorrow">Tomorrow</Link>
             </li>
             <li>
-              <Link to="/weather/hourly">Hourly</Link>
+              <Link to="/Weather-Forecast/hourly">Hourly</Link>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path={["/weather/current", "/"]}>
+          <Route path={["/Weather-Forecast/current", "/Weather-Forecast"]}>
             <Current currentData={this.state.currentWeather} />
           </Route>
-          <Route path="/weather/tomorrow">
+          <Route path="/Weather-Forecast/tomorrow">
             <Tomorrow forecast={this.state.forecast} />
          </Route>
-         <Route path="/weather/hourly">
+         <Route path="/Weather-Forecast/hourly">
             <Hourly forecast={this.state.forecast} />
          </Route>
         </Switch>
