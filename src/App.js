@@ -108,13 +108,13 @@ class App extends React.Component
         <nav>
           <ul className="buttonList">
             <li>
-              <Link to="/Weather-Forecast/current">Current</Link>
+              <Link to="/Weather-Forecast">Current</Link>
             </li>
             <li>
-              <Link to="/Weather-Forecast/tomorrow">Tomorrow</Link>
+              <Link to="tomorrow">Tomorrow</Link>
             </li>
             <li>
-              <Link to="/Weather-Forecast/hourly">Hourly</Link>
+              <Link to="hourly">Hourly</Link>
             </li>
           </ul>
         </nav>
@@ -122,10 +122,10 @@ class App extends React.Component
           <Route path="/Weather-Forecast">
             <Current currentData={this.state.currentWeather} />
           </Route>
-          <Route path="/Weather-Forecast/tomorrow">
+          <Route path="/tomorrow">
             <Tomorrow forecast={this.state.forecast} />
          </Route>
-         <Route path="/Weather-Forecast/hourly">
+         <Route path="/hourly">
             <Hourly forecast={this.state.forecast} />
          </Route>
         </Switch>
