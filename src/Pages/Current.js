@@ -24,6 +24,14 @@ class Current extends React.Component
                 <li className="temp">{data.current.temp_c}°C</li>
                 <li>feels like: <span className="temp">{data.current.feelslike_c}°C</span></li>
             </ul>
+            <ul className="additional">
+              <li>Clouds: {data.current.cloud}%</li>
+              <li>Humidity: {data.current.humidity}%</li>
+              <li>Wind: {data.current.wind_kph} km/h ({data.current.wind_dir})</li>
+              <li>Pressure: {data.current.pressure_mb}mb</li>
+              <li>Precipitation: {data.current.precip_mm}mm</li>
+              <li>UV index: {data.current.uv}</li>
+            </ul>
           </div>
         );
       }

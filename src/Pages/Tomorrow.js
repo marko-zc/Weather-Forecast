@@ -24,6 +24,14 @@ class Tomorrow extends React.Component
                 <li>min: <span className="temp">{data.forecast.forecastday[1].day.mintemp_c}°C</span></li>
                 <li>max: <span className="temp">{data.forecast.forecastday[1].day.maxtemp_c}°C</span></li>
             </ul>
+            <ul className="additional">
+              <li>Average humidity: {data.forecast.forecastday[1].day.avghumidity}%</li>
+              <li>Maximum wind: {data.forecast.forecastday[1].day.maxwind_kph} km/h</li>
+              <li>Chance of rain: {data.forecast.forecastday[1].day.daily_chance_of_rain}%</li>
+              <li>Chance of snow: {data.forecast.forecastday[1].day.daily_chance_of_snow}%</li>
+              <li>Precipitation: {data.forecast.forecastday[1].day.totalprecip_mm}mm</li>
+              <li>UV index: {data.forecast.forecastday[1].day.uv}</li>
+            </ul>
           </div>
         );
       }
