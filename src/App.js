@@ -106,17 +106,17 @@ class App extends React.Component
   render()
   {
     return (
-      <div>
+      <div id="main">
         <nav>
           <ul className="buttonList">
             <li>
-              <Link to="/Weather-Forecast">Current</Link>
+              <Link className="link" to="/Weather-Forecast">Current</Link>
             </li>
             <li>
-              <Link to="/tomorrow">Tomorrow</Link>
+              <Link className="link" to="/tomorrow">Tomorrow</Link>
             </li>
             <li>
-              <Link to="/hourly">Hourly</Link>
+              <Link className="link" to="/hourly">Hourly</Link>
             </li>
           </ul>
         </nav>
