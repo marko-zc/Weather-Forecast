@@ -1,3 +1,18 @@
+body {
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    box-shadow: 0px 5px 10px 5px gray;
+}
+
 .buttonList {
     display: flex;
     justify-content: space-around;
@@ -17,13 +32,15 @@
     box-shadow: 0px 3px 7px 3px gray;
     transition: all 0.1s ease-in-out;
     border-radius: 5px;
+    background-color: #2980b9;
 }
 
 .buttonList > li:hover {
     transform: scale(1.1);
+    background-color: #206592;
 }
 
 .link {
     text-decoration: none;
-    color: black;
+    color: white;
 }

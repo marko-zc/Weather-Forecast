@@ -19,12 +19,14 @@ class Hourly extends React.Component
               hourlyData => hourlyData.time_epoch*1000 >= (Date.now()-3600000)
             ).map((hourlyData, i) => {
                 const time = new Date(hourlyData.time_epoch*1000)
-              return <ul key={i} className="container">
+              return <div className="hourlyCard">
+              <ul key={i} className="container">
                 <li><span className="date">{time.getDate() + ".0" + (time.getMonth() + 1) + "."}</span> <br /> <span className="hours"> {time.getHours() + ':00'} </span> </li>
                 <li><img src={hourlyData.condition.icon} /></li>
                 <li className="condition">{hourlyData.condition.text}</li>
                 <li className="temp">{hourlyData.temp_c}°C</li>
               </ul>
+              </div>
             }
           )
         ); 

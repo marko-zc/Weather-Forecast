@@ -17,7 +17,7 @@ class Current extends React.Component
         return <div>Loading...</div>;
       } else {
         return (
-          <div>
+          <div className="content">
             <ul className="container">
                 <li><img src={data.current.condition.icon}/></li>
                 <li className="condition">{data.current.condition.text}</li>

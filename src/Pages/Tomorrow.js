@@ -17,7 +17,7 @@ class Tomorrow extends React.Component
         return <div>Loading...</div>;
       } else {
         return (
-          <div className="main">
+          <div className="content">
             <ul className="container">
                 <li><img src={data.forecast.forecastday[1].day.condition.icon}/></li>
                 <li className="condition">{data.forecast.forecastday[1].day.condition.text}</li>
