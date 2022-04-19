@@ -18,6 +18,7 @@ class Current extends React.Component
       } else {
         return (
           <div className="content">
+            <div className="location">{data.location.name}, {data.location.country}</div>
             <ul className="container">
                 <li><img src={data.current.condition.icon}/></li>
                 <li className="condition">{data.current.condition.text}</li>

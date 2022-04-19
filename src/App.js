@@ -80,7 +80,8 @@ class App extends React.Component
       }
     ) 
 
-    fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&days=10&aqi=yes&alerts=yes")          .then(response => response.json())
+    fetch("https://api.weatherapi.com/v1/forecast.json?key=75a62926a7bb4dc0bb8100310212402&q=" + this.state.location.data.city + "&days=10&aqi=yes&alerts=yes")
+    .then(response => response.json())
       .then(
         (data) => {
           console.log(data);

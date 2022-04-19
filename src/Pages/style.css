@@ -38,6 +38,15 @@
     padding-left: 7px;
 }
 
+.location {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.hourlyLocation:first-child {
+    padding-top: 100px;
+}
+
 .hours {
     font-size: 24px;
 }
